@@ -8,6 +8,8 @@ class Menu extends Component {
         this.state = {  
             selectedDish: null          
         };
+
+        console.log('Menu Component Ctor Invoked.');
     }
 
     onDishSelect(dish){
@@ -31,19 +33,26 @@ class Menu extends Component {
         }
     }
 
+    componentDidMount(){
+        console.log('Menu Component did mount Invoked.');
+    }
+
     render() {
+        console.log('Menu Component Render Invoked.');
         const menu = this.props.dishes.map((dish) => {
+
             return (
                 <div key={dish.id} className="col-12 col-md-5 m-1">
                     <Card onClick={()=>{this.onDishSelect(dish)}}>                        
                         <CardImg width="100%" src={dish.image} alt={dish.name}/>                            
                         <CardImgOverlay>
-                            <CardTitle heading>{dish.name}</CardTitle>
+                            <CardTitle>{dish.name}</CardTitle>
                             <p>{dish.description}</p>
                         </CardImgOverlay>                                                                            
                     </Card>
                 </div>
             );
+            
         });
 
         return (
