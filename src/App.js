@@ -1,29 +1,25 @@
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Main from './components/MainComponent';
-import './App.css';
-import { DISHES } from './shared/dishes';
-import { Component } from 'react';
+import Main from "./components/MainComponent";
+import "./App.css";
+import { DISHES } from "./shared/dishes";
+import { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      dishes: DISHES
+      dishes: DISHES,
     };
   }
 
-
-  render(){
+  render() {
     return (
-      <div>
-        <Navbar dark color="primary"> 
-        <div className="container">
-          <NavbarBrand href="/">Fusion Restaurant</NavbarBrand>
-          </div>       
-        </Navbar>
-        <Main />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Main />
+        </div>
+      </BrowserRouter>
     );
   }
 }
